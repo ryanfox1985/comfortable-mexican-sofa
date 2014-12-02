@@ -8,7 +8,7 @@ class Comfy::Admin::Cms::FilesController < Comfy::Admin::Cms::BaseController
 
   def index
     @files = @site.files.not_page_file.includes(:categories).for_category(params[:category])
-      .order('comfy_cms_files.position').page(params[:page]).per(50)
+      .order('comfy_cms_files.position').page(params[:page])
   end
 
   def new
